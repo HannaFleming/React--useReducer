@@ -70,7 +70,6 @@ function App() {
 export default App;
 
 ```
+https://github.com/HannaFleming/React--useReducer/assets/124400864/be15a23f-5964-411b-9715-fcb9c952dbcd
 
-
-https://github.com/HannaFleming/React--useReducer/assets/124400864/f9585bb7-c243-4960-ae2f-4753b58dbf0f
 
