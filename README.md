@@ -1,4 +1,6 @@
 useReducer
+![image](https://github.com/HannaFleming/React--useReducer/assets/124400864/9b36eff0-822c-439d-a60c-f3861fb5176b)
+
 ```
 import { useReducer } from 'react';
 import './App.css';
