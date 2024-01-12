@@ -72,4 +72,66 @@ export default App;
 ```
 https://github.com/HannaFleming/React--useReducer/assets/124400864/be15a23f-5964-411b-9715-fcb9c952dbcd
 
+Example #3 Timer
+
+```
+import { useReducer, useEffect, useRef } from 'react';
+import './App.css';
+
+function reducer (state, action) {
+  switch (action.type) {
+    case'start':
+   return {...state, isTicking:true };
+    case 'pause':
+      return { ...state, isTicking: false};
+    case 'reset': 
+    return{ clock:0, isTicking: false };
+    case 'tick': 
+    return {...state, clock:state.clock+1}
+  }
+}
+
+const initialState = {
+  clock:0,
+  isTicking:false,
+}
+ 
+function App() {
+
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const myTimerRef= useRef(0);
+
+
+useEffect (()=>{
+
+  if(!state.isTicking) {
+  return;
+}
+  myTimerRef.current = setInterval(() => dispatch({type:"tick"}), 1000 );
+  return () => {
+    clearInterval(myTimerRef.current);
+    myTimerRef.current = 0; }
+
+}, [state.isTicking])
+
+
+  return (
+    <div className="App">
+
+      <p>{state.clock} s</p>
+      <button onClick={()=> dispatch({type:'start'})}>Start</button>
+      <button onClick={()=> dispatch({type:'pause'})}>Pause</button>
+      <button onClick={()=> dispatch({type:'reset'})}>Reset</button>
+
+    </div>
+  );
+ }
+
+export default App;
+
+```
+
+https://github.com/HannaFleming/React--useReducer/assets/124400864/fe8e6ffc-42e5-4121-a7ef-25a1827bab85
+
+
 
